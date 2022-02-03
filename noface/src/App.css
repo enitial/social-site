@@ -57,3 +57,29 @@ button {
   color: white;
   text-decoration: none;
 }
+
+.post_container {
+  background-color: darkgray;
+  width: 40%;
+  padding: 10px;
+  border: 1px solid whitesmoke;
+  border-radius: 8px;
+}
+
+.post_content {
+  background-color: lightyellow;
+  color: #181B20;
+  padding: 8px;
+}
+
+.post_username {
+  padding-bottom: 5px;
+}
+
+.post_id {
+  float: right;
+}
+
+#spacer {
+  height: 10px;
+}

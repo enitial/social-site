@@ -10,25 +10,20 @@ import View from './View';
 
 function App() {
 
-  const [todos, changeTodos] = useState([]);
+  const [posts, changePosts] = useState([]);
   
   const updateList = (id, content, username) => {
     const listItem = {id, content, username};
     localStorage.setItem(
       "POST",
-      JSON.stringify([...todos, listItem])
+      JSON.stringify([...posts, listItem])
     );
-    changeTodos((state) => [...state, listItem])
+    changePosts((state) => [...state, listItem])
   };
-
-  
-  //<Button
-          //onClick={onSubmit}
-      // />
 
   useEffect(() => {
     const listContents = localStorage.getItem("POST")
-    changeTodos(
+    changePosts(
       JSON.parse(listContents) || []
     )
   },[])
@@ -40,14 +35,14 @@ function App() {
           path="/Add"
           element={
             <Add
-              addStory={(id, content, username) =>
+              addPost={(id, content, username) =>
                 updateList(id, content, username)
               }
             />
           }
           />
-        <Route index element={<View todos={todos} />} />
-        <Route path="/view" element={<View todos={todos} />} />
+        <Route index element={<View posts={posts} />} />
+        <Route path="/view" element={<View posts={posts} />} />
     </Routes>
   </BrowserRouter> 
 
