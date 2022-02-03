@@ -3,25 +3,20 @@
 }
  */
 
-h1 {
-  font-size: 8.8vw;
-  text-shadow: 5px 5px black;
-}
+h1 { font-size: 8.8vw; text-shadow: 5px 5px black; }
+#div-textarea { margin-top: -3vw; }
 
-#container-left {
+.container {
   background-color: #181B20;
   min-height: 100vh;
   padding: 2vw;
+  width: 100%;
   /* display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-#div-textarea {
-  margin-top: -3vw;
 }
 
 #story {
@@ -32,17 +27,19 @@ h1 {
   font-size: 2vw;
   padding: .7vw 1.2vw .7vw 1.2vw; 
   resize: none;
+  margin: 5px;
 }
 
 #user {
   float: left;
-  max-height: 2.3vw;
-  max-width: 18vw;
+  max-height: 2.9vw;
+  max-width: 15vw;
   border: 0px solid black;
   border-radius: 1vw;
   font-size: 2vw;
   padding: .7vw 1.2vw .7vw 1.2vw; 
   resize: none;
+  margin: 10px;
 }
 
 button {
@@ -53,4 +50,10 @@ button {
   box-shadow: 5px 5px black;
   text-decoration: none; 
   width: 15vw;
+  margin: 10px;
+}
+
+#button-post {
+  color: white;
+  text-decoration: none;
 }

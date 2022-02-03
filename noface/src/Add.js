@@ -1,12 +1,12 @@
 import React, {useState} from "react"; 
-//import Form from 'react-bootstrap/Form';
-
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function Add(props) {
 
-    const emptyBox = (elementID) => {
-        document.getElementById(elementID).value = ""
-      }
+    // const emptyBox = (elementID) => {
+    //     document.getElementById(elementID).value = ""
+    //   }
       
       const [state, changeState] = useState({
         id: 0,
@@ -16,54 +16,58 @@ function Add(props) {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        props.addTodo(state.id, state.description, state.completed);
+        props.addTodo(state.id, state.username, state.content);
         // toastr.success("Item Added");
         changeState({
         id:0,
-        description: "",
-        completed: false
+        username: "",
+        content: ""
         }
         )
       }
 
     const handleChange = (event) => {
         const newState = {...state};
-        if (event.target.name === "completed") {
-            newState[event.target.name] = !state.completed;
-        } else {
-            newState[event.target.name] = event.target.value;
-        }
         changeState(newState);
     }
+    
 
     return (
-        <div id="container-left">
+        <div class="container">
 
-        <div className="App">
-          <div id="header-logo">
-            <h1>#NoFace </h1>
-          </div>
-            <div id="div-textarea">
-              <textarea 
-              id="story" 
-              name="content"
-              onClick={() => emptyBox("content")}
-              value={state.username}
-              onClick={() => emptyBox("story")}>Write your story...</textarea>
+            <div className="App">
+            <div id="header-logo">
+                <h1>#NoFace </h1>
             </div>
-              <div id="user-button">
-                <textarea
-                    id="user"
-                    name="username"
-                    onClick={() => emptyBox("user")}
-                    value={state.username}
-                    onChange={(event => handleChange(event))}>Username</textarea>&nbsp;
 
-                <button type="submit">Post</button>
-              </div>
+            <Form onSubmit={(event) => submitHandler(event)}>
+                <Form.Group controlId="story">
+                    <Form.Control 
+                        name="content"
+                        type="text"
+                        placeholder="write your story..."
+                        //value={}
+                        onChange={(event => handleChange(event))}
+                         />
+                </Form.Group>
+
+                <Form.Group controlId="user">
+                    <Form.Control
+                        name="username"
+                        type="text"
+                        placeholder="username"
+                        // value={state.username}
+                        onChange={(event => handleChange(event))}
+                         />
+                </Form.Group>
+
+                <Button variant="primary" type="submit" className="btn"><a id="button-post">Post</a></Button>
+                
+            </Form>
+
+            </div>
 
         </div>
-  </div>
     )
 }
 
