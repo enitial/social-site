@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 function Add(props) {
 
     const [state, changeState] = useState({
-        id: 0,
+        id: "",
         username: "",
         content: ""
     });
@@ -16,7 +16,7 @@ function Add(props) {
         changeState({
         id:0,
         username: "",
-        content: ""
+        content: "",
         }
         )
         window.location = "View";
@@ -30,7 +30,8 @@ function Add(props) {
     
 
     return (
-        <div class="container">
+       
+        <div class="add_container">
   
             <div className="App">
             <div id="header-logo">
@@ -40,33 +41,37 @@ function Add(props) {
             <Form onSubmit={(event) => submitHandler(event)}>
                 <Form.Group controlId="id">
                     <Form.Control
+                        id="add_id"
                         name="id"
-                        type="text"
-                        placeholder="ID tag"
+                        type="number"
+                        placeholder="ID"
                         value={state.id}
                         onChange={(event) => handleChange(event)}
                          />
                 </Form.Group>
-
-                <Form.Group controlId="content">
-                    <Form.Control
-                        name="content"
-                        type="text"
-                        placeholder="write your story..."
-                        value={state.content}
-                        onChange={(event) => handleChange(event)}
-                         />
-                </Form.Group>
-  
+                <div>
                 <Form.Group controlId="username">
                     <Form.Control
+                        id="add_username"
                         name="username"
                         type="text"
-                        placeholder="username"
+                        placeholder="Username"
                         value={state.username}
                         onChange={(event) => handleChange(event)}
                          />
                 </Form.Group>
+                <Form.Group controlId="content">
+                    <Form.Control
+                        id="add_content"
+                        name="content"
+                        type="text"
+                        placeholder="Write your story..."
+                        value={state.content}
+                        onChange={(event) => handleChange(event)}
+                        as="textarea" rows="3"
+                         />
+                </Form.Group>
+                </div>
   
                 <Button variant="primary" type="submit" className="btn">Post</Button>
                

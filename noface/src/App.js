@@ -1,23 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Counter from "./Counter.js"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Add from './Add';
-
 import View from './View';
 
 function App() {
-
   const [posts, changePosts] = useState([]);
   
-  const updateList = (id, content, username) => {
-    const listItem = {id, content, username};
-    localStorage.setItem(
-      "POST",
-      JSON.stringify([...posts, listItem])
-    );
+  const updateList = (id, username, content) => {
+    const listItem = {id, username, content};
+    localStorage.setItem("POST", JSON.stringify([...posts, listItem]) );
     changePosts((state) => [...state, listItem])
   };
 
@@ -35,8 +31,11 @@ function App() {
           path="/Add"
           element={
             <Add
+            
               addPost={(id, content, username) =>
                 updateList(id, content, username)
+                
+                
               }
             />
           }
