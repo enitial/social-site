@@ -27,8 +27,10 @@ function App() {
   return (
   <BrowserRouter>
     <Routes>
+    <Route index element={<View posts={posts} />} />
+
         <Route
-          path="/Add"
+          path="add"
           element={
             <Add
             
@@ -40,8 +42,10 @@ function App() {
             />
           }
           />
-        <Route index element={<View posts={posts} />} />
-        <Route path="/view" element={<View posts={posts} />} />
+        <Route path="view" element={<View posts={posts} />} />
+        <Route path="*" element={<View posts={posts} />} />
+
+        
     </Routes>
   </BrowserRouter> 
 

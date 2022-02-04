@@ -37,7 +37,7 @@ h1 { font-size: 8.8vw; text-shadow: 5px 5px black; }
   justify-content: center;
 }
 
-#story {
+/* #story {
   width: 34vw;
   height: 75px;
   border: 0px solid black;
@@ -45,7 +45,7 @@ h1 { font-size: 8.8vw; text-shadow: 5px 5px black; }
   font-size: 2vw;
   padding: .7vw 1.2vw .7vw 1.2vw; 
   resize: none;
-  margin: 8px;
+  margin: 10px;
 }
 
 #user {
@@ -57,8 +57,8 @@ h1 { font-size: 8.8vw; text-shadow: 5px 5px black; }
   font-size: 1.7vw;
   padding: .7vw 1.2vw .7vw 1.2vw; 
   resize: none;
-  margin: 18px;
-}
+  margin: 20px;
+} */
 
 button {
   padding: .7vw 1.2vw .7vw 1.2vw; 
@@ -93,7 +93,7 @@ button {
   color: #e4e6eb;
   padding: 7px 10px 7px 15px;
   border: 0px solid black;
-  border-radius: 2vw;
+  border-radius: 1.4vw;
   font-size: calc(10px + .6vmin);
 }
 
@@ -110,14 +110,38 @@ button {
 
 .post_reaction {
   font-size: calc(10px + .6vmin);
+  text-align: right;
+  padding: 7px 10px 7px 15px;
+  border: 0px solid black;
+  border-radius: 2vw;
+  /* float: center;
+  display:inline-block;
+  align-items: center;
+  justify-content: center; */
+  /* margin-right: 13vw; */
+}
+
+
+.post_reaction_del {
+  font-size: calc(10px + .6vmin);
   text-align: center;
   padding: 7px 10px 7px 15px;
   border: 0px solid black;
   border-radius: 2vw;
+  /* display:inline-block; */
+  /* align-items: center;
+  justify-content: center; */
+  /* margin-right: 13vw; */
+  /* float: right; */
+}
+
+.post_reaction_del:hover {
+  cursor: pointer; 
+  background-color: rgb(71, 71, 139); 
 }
 
 .post_reaction:hover {
-  background-color: #1D1D1E;
+  background-color:rgb(69, 69, 143);
   cursor: pointer;
 }
 
@@ -148,6 +172,8 @@ button {
   font-size: calc(10px + 1vmin);
 }
 
+
+
 .like_counter {
   margin: 3px 0px 0px 15px;
   background-color: #3a3b3c;
@@ -155,5 +181,22 @@ button {
   padding: 1px 9px 0px 9px;
   border: 0px solid black;
   border-radius: 1vw;
+  background-color: rgb(71, 71, 139); 
 
+}
+
+  
+
+.below_post {
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+}
+
+.cursor_hand {
+  cursor: pointer;
+}
+.below_post:hover{
+  cursor: pointer; 
+  
 }

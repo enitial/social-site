@@ -47,6 +47,7 @@ function Add(props) {
                         placeholder="ID"
                         value={state.id}
                         onChange={(event) => handleChange(event)}
+                        style={{margin:"5px"}}
                          />
                 </Form.Group>
                 <div>
@@ -58,6 +59,7 @@ function Add(props) {
                         placeholder="Username"
                         value={state.username}
                         onChange={(event) => handleChange(event)}
+                        style={{margin:"5px"}}
                          />
                 </Form.Group>
                 <Form.Group controlId="content">
@@ -67,6 +69,7 @@ function Add(props) {
                         type="text"
                         placeholder="Write your story..."
                         value={state.content}
+                        style={{margin:"5px"}}
                         onChange={(event) => handleChange(event)}
                         as="textarea" rows="3"
                          />

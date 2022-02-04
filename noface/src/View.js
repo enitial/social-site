@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Counter from "./Counter.js"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Button from 'react-bootstrap/Button';
-
 
 function View(props){
   const [counters, setCounters] = useState([]);
@@ -17,6 +16,13 @@ function View(props){
       [...prev, {id: counters.length, count: 1}]
     )}  
   };
+  
+  const removeCounter =() => {
+   if((counters.length) >1 ){
+     setCounters((prev)=> 
+  [...prev, {id: counters.length, count:0}]
+   )}
+ };
 
   const changeCounter = (id, increment) => {
     const updated = counters.map((counter) => {
@@ -62,12 +68,18 @@ function View(props){
 
             <hr/>
                 {/* Counter */}
-                <div>
-              <div class="float_left">{buildCounters()}</div>
-              
-            <div class="post_reaction" onClick={() => addCounter()}>
-            <FontAwesomeIcon icon={faThumbsUp} size="xs" />&nbsp;&nbsp;LIKE
-            </div>
+                <div class="float_left">{buildCounters()}</div>
+
+                <div class="below_post">
+                    
+                  <div class="post_reaction" onClick={() => addCounter()}>
+                  <FontAwesomeIcon icon={faThumbsUp} size="xs" />&nbsp;&nbsp;LIKE
+                  </div> 
+                  <div class="post_reaction_del" onClick={()=> removeCounter()}>
+                    <FontAwesomeIcon icon={faTrash} size="xs"/>&nbsp;&nbsp;DELETE
+                    </div> 
+        
+            
                 </div>
 
             <div>
