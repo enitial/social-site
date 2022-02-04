@@ -4,6 +4,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Counter from "./Counter.js"
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -16,13 +17,19 @@ function View(props){
       [...prev, {id: counters.length, count: 1}]
     )}  
   };
+
+  // const removeCounter = (e) => {
+  //  const name = e.target.getAttribute("name")
+  //  updateList(list.filter(item => item.name !== name));
+  // };
+
+  const removeCounter = () => {
+    if((counters.length) > 1) {
+      setCounters((prev) => 
+        [...prev, {id: counters.length, count: 0}]
+      )}  
+    };
   
-  const removeCounter =() => {
-   if((counters.length) >1 ){
-     setCounters((prev)=> 
-  [...prev, {id: counters.length, count:0}]
-   )}
- };
 
   const changeCounter = (id, increment) => {
     const updated = counters.map((counter) => {
@@ -57,9 +64,9 @@ function View(props){
               
             <div class="post_username">
               &nbsp;<FontAwesomeIcon icon={faUser} size="xs" />&nbsp;&nbsp;{current.username}
-                <span class="post_id">
+                {/* <span class="post_id">
                   #{current.id}
-                </span>
+                </span> */}
             </div>
 
             <div class="post_content">
@@ -75,10 +82,9 @@ function View(props){
                   <div class="post_reaction" onClick={() => addCounter()}>
                   <FontAwesomeIcon icon={faThumbsUp} size="xs" />&nbsp;&nbsp;LIKE
                   </div> 
-                  <div class="post_reaction_del" onClick={()=> removeCounter()}>
+                    <div class="post_reaction_del" onClick={()=> removeCounter()}>
                     <FontAwesomeIcon icon={faTrash} size="xs"/>&nbsp;&nbsp;DELETE
                     </div> 
-        
             
                 </div>
 
@@ -96,6 +102,8 @@ function View(props){
       return (
 
         <div class="view_container">
+                  <Button variant="light" className="btn" href="add">Create Post</Button><br/>
+
             {buildRows()}
             {/* {buildCounters()} */}
             {/* <Button variant="primary" onClick={() => addCounter()}>add counter</Button>&nbsp;&nbsp; */}

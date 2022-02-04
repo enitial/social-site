@@ -67,7 +67,7 @@ button {
   border-radius: 1vw;
   box-shadow: 5px 5px black;
   text-decoration: none; 
-  width: 15vw;
+  width: 20vw;
   margin: 10px;
 }
 
@@ -78,7 +78,7 @@ button {
 
 .post_container {
   background-color: #242526;
-  width: 600px;
+  width: 90vw;
   padding: 10px;
   border: 0px solid whitesmoke;
   border-radius: 8px;

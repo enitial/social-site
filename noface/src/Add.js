@@ -27,6 +27,8 @@ function Add(props) {
             newState[event.target.name] = event.target.value;
         changeState(newState);
     }
+
+    
     
 
     return (
@@ -39,7 +41,7 @@ function Add(props) {
             </div>
 
             <Form onSubmit={(event) => submitHandler(event)}>
-                <Form.Group controlId="id">
+                <Form.Group controlId="id" hidden="true">
                     <Form.Control
                         id="add_id"
                         name="id"
@@ -76,7 +78,7 @@ function Add(props) {
                 </Form.Group>
                 </div>
   
-                <Button variant="primary" type="submit" className="btn">Post</Button>
+                <Button variant="light" type="submit" className="btn">Post</Button>
                
             </Form>
   
